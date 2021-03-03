@@ -57,10 +57,11 @@ function cadastraDespesa(){
         valor.value
     )
     if (despesa.validarDados()) {
-        // bd.gravar(despesa)
+        bd.gravar(despesa)
+        $("#sucessoGrava").modal("show")
     }
     else {
-
+        $("#erroGravacao").modal("show")
     }
 }
 
