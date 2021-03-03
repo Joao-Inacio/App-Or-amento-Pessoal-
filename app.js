@@ -10,7 +10,7 @@ class Despesa {
     }
     validarDados(){
         for (let i in this) {
-            if (this[i] == undefined || this[i] == "" || this[i] == null) {
+            if (this[i] == undefined || this[i] == ' ' || this[i] == null) {
                 return false
             }
         }
@@ -19,14 +19,14 @@ class Despesa {
 }
 class Bd { 
     constructr(){
-        let id = localStorage.getItem("id")
+        let id = localStorage.getItem('id')
         if (id === null) {
-            localStorage.setItem("id",0)
+            localStorage.setItem('id',0)
         }
     }
 
     getProximoId(){
-        let proximoId = localStorage.getItem("id")
+        let proximoId = localStorage.getItem('id')
         return parseInt(proximoId) + 1
     }
 
@@ -34,7 +34,7 @@ class Bd {
     gravar(d) {
         let id = this.getProximoId()
         localStorage.setItem(id, JSON.stringify(d))
-        localStorage.setItem("id", id)
+        localStorage.setItem('id', id)
 
     }
 }
@@ -58,10 +58,22 @@ function cadastraDespesa(){
     )
     if (despesa.validarDados()) {
         bd.gravar(despesa)
-        $("#sucessoGrava").modal("show")
+        document.getElementById('msgTitulo').innerHTML = 'Registro Comfirmado'
+        document.getElementById('div').className = 'modal-header text-success'
+        document.getElementById('msg').innerHTML = 'Despesa foi cadastrada com sucesso!'
+        document.getElementById('botao').innerHTML = 'Voltar'
+        document.getElementById('botao').className = 'btn btn-success'
+        $('#msgStatus').modal('show')
+        
+        
     }
     else {
-        $("#erroGravacao").modal("show")
+        document.getElementById('msgTitulo').innerHTML = 'Erro ao Registra'
+        document.getElementById('div').className = 'modal-header text-danger'
+        document.getElementById('msg').innerHTML = 'Campos obrigatorio vazios'
+        document.getElementById('botao').innerHTML = 'Corrigir'
+        document.getElementById('botao').className = 'btn btn-danger'
+        $('#msgStatus').modal('show')
     }
 }
 

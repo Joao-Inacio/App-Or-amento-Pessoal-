@@ -64,9 +64,6 @@
                 <div class="col-md-2 ">
                     <select class="form-control " id="ano">
                         <option value="">Ano</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                     </select>
@@ -125,39 +122,20 @@
         
     
     <!-- Modal -->
-    <div class="modal fade" id="erroGravacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="msgStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header text-danger">
-                    <h5 class="modal-title" id="erroGravacao">Erro ao cadastra</h5>
+                <div id="div" class="">
+                    <h5 class="modal-title" id="msgTitulo"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                Campos obrigatório vazios
+                <div id="msg" class="modal-body">
+                
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Corrigir</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="sucessoGrava" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-success">
-                    <h5 class="modal-title" id="erroGravacao">Registro Comfirmado</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Despesa foi registrada com sucesso
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
+                    <button id="botao" type="button" class=" " data-dismiss="modal"></button>
                 </div>
             </div>
         </div>
