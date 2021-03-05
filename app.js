@@ -57,6 +57,28 @@ class Bd {
 		return despesas
 	}
 	pesquisar(despesa){
+		let despesasFiltradas = Array()
+
+		despesasFiltradas = this.recuperarTodosRegistros()
+
+		if (despesa.ano != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+		}
+		if (despesa.mes != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+		}
+		if (despesa.dia != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+		}
+		if (despesa.tipo != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+		}
+		if (despesa.descricao != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+		}
+		if (despesa.valor != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+		}
 
 	}
 }
@@ -140,9 +162,7 @@ function carregaListaDespesas() {
 		linha.insertCell(1).innerHTML = d.tipo
 		linha.insertCell(2).innerHTML = d.descricao
 		linha.insertCell(3).innerHTML = d.valor
-		console.log(d)
 	})
-
 }
 function pesquisarDespesa() {
 	let ano = document.getElementById('ano').value
