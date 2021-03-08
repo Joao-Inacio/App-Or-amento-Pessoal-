@@ -143,6 +143,44 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
 	despesas.forEach(function (d) {
 
 		var linha = listaDespesas.insertRow();
+		switch (d.mes) {
+			case '01':
+				d.mes = 'Jan'
+				break
+			case '02':
+				d.mes = 'Fev'
+				break
+			case '03':
+				d.mes = 'Mar'
+				break
+			case '04':
+				d.mes = 'Abr'
+				break
+			case '05':
+				d.mes = 'Mai'
+				break
+			case '06':
+				d.mes = 'Jun'
+				break
+			case '07':
+				d.mes = 'Jul'
+				break
+			case '08':
+				d.mes = 'Ago'
+				break
+			case '09':
+				d.mes = 'Set'
+				break
+			case '10':
+				d.mes = 'Out'
+				break
+			case '11':
+				d.mes = 'Nov'
+				break
+			case '12':
+				d.mes = 'Dez'
+				break
+		}
 
 		linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`
 
@@ -165,7 +203,7 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
 		}
 		linha.insertCell(1).innerHTML = d.tipo
 		linha.insertCell(2).innerHTML = d.descricao
-		linha.insertCell(3).innerHTML = d.valor
+		linha.insertCell(3).innerHTML = `R$${d.valor}`
 
 		let btn = document.createElement('button')
 		btn.className = 'btn btn-danger'
